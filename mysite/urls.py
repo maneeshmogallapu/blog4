@@ -18,9 +18,10 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic.base import RedirectView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('blog.urls')),
     path('accounts/',include('registration.backends.default.urls')),
-    path('accounts/profile/',RedirectView.as_view(url = '/blog/')),
+    path('accounts/profile/',RedirectView.as_view(url ='/blog'))
 ] + static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

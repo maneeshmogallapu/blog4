@@ -8,8 +8,9 @@ class Post(models.Model):
 	body = models.TextField()
 	created_date = models.DateTimeField(default = timezone.now)
 	author = models.ForeignKey(get_user_model(),on_delete = models.CASCADE,null = True)
-	img = models.ImageField(upload_to='',blank = True,null = True)
+	img = models.ImageField(upload_to='',null = True)
 	likes = models.IntegerField(null = True,default = 0)
+	
 	def __str__(self):
 		return self.title
 
@@ -20,4 +21,3 @@ class Comment(models.Model):
 
 	def __str__(self):
 		return self.text
-
